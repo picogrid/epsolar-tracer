@@ -17,7 +17,7 @@ def AH():
 def W():
     return [ 'Watt', 'W' ]
 def C():
-    return [ 'degree Celsius', '°C' ] # \0xb0
+    return [ 'degree Celsius', 'ï¿½C' ] # \0xb0
 def PC():
     return [ '%, percentage', '%' ]
 def KWH():
@@ -427,7 +427,7 @@ Register("Battery Capacity",
   AH, 1 ),
 # Temperature compensation coefficient
 Register("Temperature compensation coefficient",
-  0x9002, "Range 0-9 mV/°C/2V",
+  0x9002, "Range 0-9 mV/ï¿½C/2V",
   I, 100 ),
 # High Volt.disconnect
 Register("High Volt.disconnect",
@@ -633,6 +633,9 @@ Register("Charging percentage",
 # Management modes of battery charging and discharging
 Register("Management modes of battery charging and discharging",
   0x9070, "Management modes of battery charge and discharge, voltage compensation : 0 and SOC : 1.",
+  I, 1 ),
+Register("Battery under voltage control",
+  0x9072, "Return to normal mode when recovery from under voltage",
   I, 1 ),
 ];
 
