@@ -80,7 +80,7 @@ else:
 # # 900D (Low voltage disconnect voltage) - 51.7
 # # 900E (Discharge limit voltage) 47.9
 
-rq = client.client.write_registers(0x9003, [encode(60), encode(58.4), encode(58.4), encode(56), encode(56), encode(54), encode(53.5), encode(53), encode(50), encode(49), encode(51.9), encode(47.9)], unit=0x1)
+rq = client.client.write_registers(0x9003, [encode(60), encode(58.4), encode(58.4), encode(56), encode(56), encode(54), encode(53.5), encode(53), encode(50), encode(49), encode(51.7), encode(47.9)], unit=0x1)
 assert(not rq.isError())
 
 rr = client.read_input("Low voltage disconnect")
