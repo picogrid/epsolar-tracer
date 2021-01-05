@@ -15,7 +15,7 @@ from pyepsolartracer.registers import registerByName
 import logging
 logging.basicConfig()
 log = logging.getLogger()
-log.setLevel(logging.INFO)
+log.setLevel(logging.DEBUG)
 
 # choose the serial client
 client = EPsolarTracerClient()
