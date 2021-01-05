@@ -197,7 +197,7 @@ if hasattr(rr, "getRegister"):
 else:
     print "read_holding_registers:", str(rr)
 
-rq = client.client.write_registers(0x9072, [0xffff], unit=0x1)
+rq = client.client.write_registers(0x9072, [65535], unit=0x1)
 rr = client.read_input("Battery under voltage control")
 if hasattr(rr, "getRegister"):
     print "read_holding_registers:", rr.getRegister(0)
