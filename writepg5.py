@@ -44,6 +44,7 @@ def decode(response):
     log.info ("No value for register")
     return None
 
+rq = client.client.write_registers(0x9000, [0], unit=0x1)
 rr = client.read_input("Battery Type")
 if hasattr(rr, "getRegister"):
     print "read_holding_registers:", rr.getRegister(0)
@@ -80,7 +81,7 @@ else:
 # # 900D (Low voltage disconnect voltage) - 51.0
 # # 900E (Discharge limit voltage) 48
 
-# rq = client.client.write_registers(0x9003, [encode(60), encode(58.4), encode(58.4), encode(56), encode(56), encode(54), encode(53.5), encode(53), encode(50), encode(49), encode(51), encode(48)], unit=0x1)
+rq = client.client.write_registers(0x9003, [encode(60), encode(58.4), encode(58.4), encode(56), encode(56), encode(54), encode(53.5), encode(53), encode(50), encode(49), encode(51), encode(48)], unit=0x1)
 # assert(not rq.isError())
 
 rr = client.read_input("Low voltage disconnect")
