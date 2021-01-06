@@ -634,9 +634,6 @@ Register("Charging percentage",
 Register("Management modes of battery charging and discharging",
   0x9070, "Management modes of battery charge and discharge, voltage compensation : 0 and SOC : 1.",
   I, 1 ),
-Register("Battery under voltage control",
-  0x9072, "Return to normal mode when recovery from under voltage",
-  I, 1 ),
 ];
 
 coils = [

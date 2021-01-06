@@ -67,19 +67,19 @@ else:
 # else:
 #     print "read_holding_registers:", str(rr)
 
-# # 9003 to 900E must be written together
-# # 9003 (Over voltage disconnect) - 60
-# # 9004 (Charging limit voltage) - 58.4
-# # 9005 (Over voltage reconnect) - 58.4
-# # 9006 (Equalize charging voltage) - 56
-# # 9007 (Boost charging voltage) - 56
-# # 9008 (Float charging voltage) - 54
-# # 9009 (Boost reconnect charging voltage) - 53.5
-# # 900A (Low voltage reconnect voltage) - 50 --> 53
-# # 900B (Under voltage warning recover voltage) - 50
-# # 900C (Under voltage warning voltage) - 49
-# # 900D (Low voltage disconnect voltage) - 51.0
-# # 900E (Discharge limit voltage) 48
+# 9003 to 900E must be written together
+# 9003 (Over voltage disconnect) - 60
+# 9004 (Charging limit voltage) - 58.4
+# 9005 (Over voltage reconnect) - 58.4
+# 9006 (Equalize charging voltage) - 56
+# 9007 (Boost charging voltage) - 56
+# 9008 (Float charging voltage) - 54
+# 9009 (Boost reconnect charging voltage) - 53.5
+# 900A (Low voltage reconnect voltage) - 50 --> 53
+# 900B (Under voltage warning recover voltage) - 50
+# 900C (Under voltage warning voltage) - 49
+# 900D (Low voltage disconnect voltage) - 51.0
+# 900E (Discharge limit voltage) 48
 
 rq = client.client.write_registers(0x9003, [encode(60), encode(58.4), encode(58.4), encode(56), encode(56), encode(54), encode(53.5), encode(53), encode(50), encode(49), encode(51), encode(48)], unit=0x1)
 # assert(not rq.isError())
