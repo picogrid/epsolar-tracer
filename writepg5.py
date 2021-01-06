@@ -176,7 +176,7 @@ else:
 
 # # 906D (Battery discharge)
 # # 906E (Battery charge)
-rq = client.client.write_registers(0x906D, [30, 100], unit=0x1)
+rq = client.client.write_registers(0x906D, [0, 100], unit=0x1)
 
 rr = client.read_input("Discharging percentage")
 if hasattr(rr, "getRegister"):
