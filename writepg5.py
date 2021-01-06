@@ -77,11 +77,11 @@ else:
 # # 900A (Low voltage reconnect voltage) - 50 --> 53
 # # 900B (Under voltage warning recover voltage) - 50
 # # 900C (Under voltage warning voltage) - 49
-# # 900D (Low voltage disconnect voltage) - 51.7
-# # 900E (Discharge limit voltage) 47.9
+# # 900D (Low voltage disconnect voltage) - 51.0
+# # 900E (Discharge limit voltage) 48
 
-rq = client.client.write_registers(0x9003, [encode(60), encode(58.4), encode(58.4), encode(56), encode(56), encode(54), encode(53.5), encode(53), encode(50), encode(49), encode(52.6), encode(51.4)], unit=0x1)
-assert(not rq.isError())
+# rq = client.client.write_registers(0x9003, [encode(60), encode(58.4), encode(58.4), encode(56), encode(56), encode(54), encode(53.5), encode(53), encode(50), encode(49), encode(51), encode(48)], unit=0x1)
+# assert(not rq.isError())
 
 rr = client.read_input("Low voltage disconnect")
 if hasattr(rr, "getRegister"):
@@ -150,7 +150,7 @@ else:
 #     print "read_holding_registers:", str(rr)
 
 # 9067 Battery rated voltage level - 0 =auto recognize
-rq = client.client.write_registers(0x9067, [encode(0)], unit=0x1)
+# rq = client.client.write_registers(0x9067, [encode(0)], unit=0x1)
 
 rr = client.read_input("Battery rated voltage code")
 if hasattr(rr, "getRegister"):
@@ -160,7 +160,7 @@ else:
 
 # 906B (Equalize duration)
 # 906C (Boost Duration)
-rq = client.client.write_registers(0x906B, [120, 120], unit=0x1)
+# rq = client.client.write_registers(0x906B, [120, 120], unit=0x1)
 
 rr = client.read_input("Equalize duration")
 if hasattr(rr, "getRegister"):
@@ -176,7 +176,7 @@ else:
 
 # # 906D (Battery discharge)
 # # 906E (Battery charge)
-rq = client.client.write_registers(0x906D, [0, 100], unit=0x1)
+# rq = client.client.write_registers(0x906D, [0, 100], unit=0x1)
 
 rr = client.read_input("Discharging percentage")
 if hasattr(rr, "getRegister"):
@@ -190,14 +190,14 @@ if hasattr(rr, "getRegister"):
 else:
     print "read_holding_registers:", str(rr)
 
-rq = client.client.write_registers(0x9070, [0], unit=0x1)
+# rq = client.client.write_registers(0x9070, [0], unit=0x1)
 rr = client.read_input("Management modes of battery charging and discharging")
 if hasattr(rr, "getRegister"):
     print "read_holding_registers:", rr.getRegister(0)
 else:
     print "read_holding_registers:", str(rr)
 
-rq = client.client.write_registers(0x9072, [65535], unit=0x1)
+# rq = client.client.write_registers(0x9072, [65535], unit=0x1)
 rr = client.read_input("Battery under voltage control")
 if hasattr(rr, "getRegister"):
     print "read_holding_registers:", rr.getRegister(0)
