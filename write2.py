@@ -83,17 +83,79 @@ else:
 # rq = client.client.write_registers(0x9003, [encode(60), encode(58.4), encode(58.4), encode(56), encode(56), encode(54), encode(53.5), encode(53), encode(50), encode(49), encode(51), encode(47.9)], unit=0x1)
 # assert(not rq.isError())
 
-# rr = client.read_input("Low voltage disconnect")
-# if hasattr(rr, "getRegister"):
-#     print "read_holding_registers:", rr.getRegister(0)
-# else:
-#     print "read_holding_registers:", str(rr)
+rr = client.read_input("Over voltage disconnect")
+if hasattr(rr, "getRegister"):
+    print "read_holding_registers:", rr.getRegister(0)
+else:
+    print "read_holding_registers:", str(rr)
 
-# rr = client.read_input("Low voltage reconnect")
-# if hasattr(rr, "getRegister"):
-#     print "read_holding_registers:", rr.getRegister(0)
-# else:
-#     print "read_holding_registers:", str(rr)
+rr = client.read_input("Charging limit voltage")
+if hasattr(rr, "getRegister"):
+    print "read_holding_registers:", rr.getRegister(0)
+else:
+    print "read_holding_registers:", str(rr)
+
+rr = client.read_input("Over voltage reconnect")
+if hasattr(rr, "getRegister"):
+    print "read_holding_registers:", rr.getRegister(0)
+else:
+    print "read_holding_registers:", str(rr)
+
+rr = client.read_input("Equalize charging voltage")
+if hasattr(rr, "getRegister"):
+    print "read_holding_registers:", rr.getRegister(0)
+else:
+    print "read_holding_registers:", str(rr)
+
+rr = client.read_input("Boost charging voltage")
+if hasattr(rr, "getRegister"):
+    print "read_holding_registers:", rr.getRegister(0)
+else:
+    print "read_holding_registers:", str(rr)
+
+rr = client.read_input("Float charging voltage")
+if hasattr(rr, "getRegister"):
+    print "read_holding_registers:", rr.getRegister(0)
+else:
+    print "read_holding_registers:", str(rr)
+
+rr = client.read_input("Boost reconnect charging voltage")
+if hasattr(rr, "getRegister"):
+    print "read_holding_registers:", rr.getRegister(0)
+else:
+    print "read_holding_registers:", str(rr)
+
+rr = client.read_input("Low voltage reconnect voltage")
+if hasattr(rr, "getRegister"):
+    print "read_holding_registers:", rr.getRegister(0)
+else:
+    print "read_holding_registers:", str(rr)
+
+rr = client.read_input("Under voltage warning recover voltage")
+if hasattr(rr, "getRegister"):
+    print "read_holding_registers:", rr.getRegister(0)
+else:
+    print "read_holding_registers:", str(rr)
+
+rr = client.read_input("Under voltage warning voltage")
+if hasattr(rr, "getRegister"):
+    print "read_holding_registers:", rr.getRegister(0)
+else:
+    print "read_holding_registers:", str(rr)
+
+rr = client.read_input("Low voltage disconnect voltage")
+if hasattr(rr, "getRegister"):
+    print "read_holding_registers:", rr.getRegister(0)
+else:
+    print "read_holding_registers:", str(rr)
+
+rr = client.read_input("Discharge limit voltage")
+if hasattr(rr, "getRegister"):
+    print "read_holding_registers:", rr.getRegister(0)
+else:
+    print "read_holding_registers:", str(rr)
+
+
 
 # # # 9010 (Lower temperature charging limit)
 # # # 9011 (Lower temperature discharging limit)
@@ -106,11 +168,11 @@ else:
 # # else:
 # #     print "read_holding_registers:", str(rr)
 
-# # rr = client.client.read_holding_registers(0x9011, 2, unit = 0x01)
-# # if hasattr(rr, "getRegister"):
-# #     print "read_holding_registers:", rr.getRegister(0)
-# # else:
-# #     print "read_holding_registers:", str(rr)
+# rr = client.client.read_holding_registers(0x9011, 2, unit = 0x01)
+# if hasattr(rr, "getRegister"):
+#     print "read_holding_registers:", rr.getRegister(0)
+# else:
+#     print "read_holding_registers:", str(rr)
 
 # # 9017 (Battery upper temperature limit)
 # # 9018 (Battery lower temperature limit)
@@ -119,49 +181,49 @@ else:
 # rq = client.client.write_registers(0x9017, [encode(60), encode(-20), encode(85), encode(75)], unit=0x1)
 # assert(not rq.isError())
 
-# rr = client.read_input("Battery temperature warning upper limit")
-# if hasattr(rr, "getRegister"):
-#     print "read_holding_registers:", rr.getRegister(0)
-# else:
-#     print "read_holding_registers:", str(rr)
+rr = client.read_input("Battery temperature warning upper limit")
+if hasattr(rr, "getRegister"):
+    print "read_holding_registers:", rr.getRegister(0)
+else:
+    print "read_holding_registers:", str(rr)
 
-# rr = client.read_input("Battery temperature warning lower limit")
-# if hasattr(rr, "getRegister"):
-#     print "read_holding_registers:", rr.getRegister(0)
-# else:
-#     print "read_holding_registers:", str(rr)
+rr = client.read_input("Battery temperature warning lower limit")
+if hasattr(rr, "getRegister"):
+    print "read_holding_registers:", rr.getRegister(0)
+else:
+    print "read_holding_registers:", str(rr)
 
-# rr = client.read_input("Controller inner temperature upper limit")
-# if hasattr(rr, "getRegister"):
-#     print "read_holding_registers:", rr.getRegister(0)
-# else:
-#     print "read_holding_registers:", str(rr)
+rr = client.read_input("Controller inner temperature upper limit")
+if hasattr(rr, "getRegister"):
+    print "read_holding_registers:", rr.getRegister(0)
+else:
+    print "read_holding_registers:", str(rr)
 
-# rr = client.read_input("Controller inner temperature upper limit recover")
-# if hasattr(rr, "getRegister"):
-#     print "read_holding_registers:", rr.getRegister(0)
-# else:
-#     print "read_holding_registers:", str(rr)
+rr = client.read_input("Controller inner temperature upper limit recover")
+if hasattr(rr, "getRegister"):
+    print "read_holding_registers:", rr.getRegister(0)
+else:
+    print "read_holding_registers:", str(rr)
 
-# rr = client.read_input("Battery rated voltage code")
-# if hasattr(rr, "getRegister"):
-#     print "read_holding_registers:", rr.getRegister(0)
-# else:
-#     print "read_holding_registers:", str(rr)
+rr = client.read_input("Battery rated voltage code")
+if hasattr(rr, "getRegister"):
+    print "read_holding_registers:", rr.getRegister(0)
+else:
+    print "read_holding_registers:", str(rr)
 
 # # 906B (Equalize duration)
 # # 906C (Boost Duration)
 # rq = client.client.write_registers(0x9067, [encode(0)], unit=0x1)
 
-# rr = client.read_input("Battery rated voltage code")
-# if hasattr(rr, "getRegister"):
-#     print "read_holding_registers:", rr.getRegister(0)
-# else:
-#     print "read_holding_registers:", str(rr)
+rr = client.read_input("Battery rated voltage code")
+if hasattr(rr, "getRegister"):
+    print "read_holding_registers:", rr.getRegister(0)
+else:
+    print "read_holding_registers:", str(rr)
 
 # 906B (Equalize duration)
 # 906C (Boost Duration)
-rq = client.client.write_registers(0x906B, [120, 120], unit=0x1)
+# rq = client.client.write_registers(0x906B, [120, 120], unit=0x1)
 
 rr = client.read_input("Equalize duration")
 if hasattr(rr, "getRegister"):
