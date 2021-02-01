@@ -149,7 +149,7 @@ if hasattr(rr, "getRegister"):
 else:
     print "read_holding_registers:", str(rr)
 
-rr = client.read_input("Discharge limit voltage")
+rr = client.read_input("Discharging limit voltage")
 if hasattr(rr, "getRegister"):
     print "read_holding_registers:", rr.getRegister(0)
 else:
