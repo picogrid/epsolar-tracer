@@ -429,9 +429,9 @@ Register("Battery Capacity",
 Register("Temperature compensation coefficient",
   0x9002, "Range 0-9 mV/�C/2V",
   I, 100 ),
-# High Volt.disconnect
-Register("High Volt.disconnect",
-  0x9003, "High Volt.disconnect",
+# Over voltage disconnect
+Register("Over voltage disconnect",
+  0x9003, "Over voltage disconnect",
   V, 100 ),
 # Charging limit voltage
 Register("Charging limit voltage",
