@@ -70,7 +70,7 @@ else:
 # # 9003 (Over voltage disconnect) - 60
 # # 9004 (Charging limit voltage) - 58.4
 # # 9005 (Over voltage reconnect) - 58.4
-# # 9006 (Equalize charging voltage) - 56
+# # 9006 (Equalization voltage) - 56
 # # 9007 (Boost charging voltage) - 56
 # # 9008 (Float charging voltage) - 54
 # # 9009 (Boost reconnect charging voltage) - 53.5
@@ -101,49 +101,49 @@ if hasattr(rr, "getRegister"):
 else:
     print "read_holding_registers:", str(rr)
 
-rr = client.read_input("Equalize charging voltage")
+rr = client.read_input("Equialization voltage")
 if hasattr(rr, "getRegister"):
     print "read_holding_registers:", rr.getRegister(0)
 else:
     print "read_holding_registers:", str(rr)
 
-rr = client.read_input("Boost charging voltage")
+rr = client.read_input("Boost voltage")
 if hasattr(rr, "getRegister"):
     print "read_holding_registers:", rr.getRegister(0)
 else:
     print "read_holding_registers:", str(rr)
 
-rr = client.read_input("Float charging voltage")
+rr = client.read_input("Float voltage")
 if hasattr(rr, "getRegister"):
     print "read_holding_registers:", rr.getRegister(0)
 else:
     print "read_holding_registers:", str(rr)
 
-rr = client.read_input("Boost reconnect charging voltage")
+rr = client.read_input("Boost reconnect voltage")
 if hasattr(rr, "getRegister"):
     print "read_holding_registers:", rr.getRegister(0)
 else:
     print "read_holding_registers:", str(rr)
 
-rr = client.read_input("Low voltage reconnect voltage")
+rr = client.read_input("Low voltage voltage")
 if hasattr(rr, "getRegister"):
     print "read_holding_registers:", rr.getRegister(0)
 else:
     print "read_holding_registers:", str(rr)
 
-rr = client.read_input("Under voltage warning recover voltage")
+rr = client.read_input("Under voltage recover")
 if hasattr(rr, "getRegister"):
     print "read_holding_registers:", rr.getRegister(0)
 else:
     print "read_holding_registers:", str(rr)
 
-rr = client.read_input("Under voltage warning voltage")
+rr = client.read_input("Under voltage warning")
 if hasattr(rr, "getRegister"):
     print "read_holding_registers:", rr.getRegister(0)
 else:
     print "read_holding_registers:", str(rr)
 
-rr = client.read_input("Low voltage disconnect voltage")
+rr = client.read_input("Low voltage disconnect")
 if hasattr(rr, "getRegister"):
     print "read_holding_registers:", rr.getRegister(0)
 else:
