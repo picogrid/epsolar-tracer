@@ -2,6 +2,7 @@
 # -*- coding: iso-8859-15 -*-
 
 import time
+import struct
 
 # import the server implementation
 from pyepsolartracer.registers import registers,coils
@@ -48,9 +49,9 @@ if hasattr(rr, "getRegister"):
 else:
     print "read_holding_registers:", str(rr)
 
-# 9001 (Battery capacity)
-# 9002 (Temp. Compensation coefficient)
-rq = client.client.write_registers(0x9001, [150, encode(-2)], unit=0x1)
+# 9001 (Battery capacity) 150 Ah 
+# 9002 (Temp. Compensation coefficient) -2C (encoding bugs mean this is encoded as +2C)
+rq = client.client.write_registers(0x9001, [150, encode(2)], unit=0x1)
 
 rr = client.read_input("Battery Capacity")
 if hasattr(rr, "getRegister"):
@@ -79,7 +80,7 @@ else:
 # 900E (Discharge limit voltage) 48
 
 rq = client.client.write_registers(0x9003, [encode(60), encode(58.4), encode(58.4), encode(56), encode(56), encode(54), encode(53.5), encode(53), encode(50), encode(49), encode(51), encode(48)], unit=0x1)
-assert(not rq.isError())
+# assert(not rq.isError())
 
 rr = client.read_input("Over voltage disconnect")
 if hasattr(rr, "getRegister"):
@@ -182,8 +183,8 @@ if hasattr(rr, "getRegister"):
 else:
     print "read_holding_registers:", str(rr)
 
-# 9067 Battery rated voltage level - 0 =auto recognize
-rq = client.client.write_registers(0x9067, [encode(0)], unit=0x1)
+# 9067 Battery rated voltage level - 0 = auto recognize, 4 = 48V
+rq = client.client.write_registers(0x9067, [4], unit=0x1)
 assert(not rq.isError())
 
 rr = client.read_input("Battery rated voltage code")
@@ -194,7 +195,7 @@ else:
 
 # 906B (Equalize duration)
 # 906C (Boost Duration)
-rq = client.client.write_registers(0x906B, [180, 240], unit=0x1)
+rq = client.client.write_registers(0x906B, [180, 180], unit=0x1)
 assert(not rq.isError())
 
 rr = client.read_input("Equalize duration")
