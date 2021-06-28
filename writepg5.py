@@ -70,7 +70,7 @@ else:
 # 9004 (Charging limit voltage) - 58.4
 # 9005 (Over voltage reconnect) - 58.4
 # 9006 (Equalize charging voltage) - 56
-# 9007 (Boost charging voltage) - 56 - Changed to 55.5V following Simpliphi feedback
+# 9007 (Boost charging voltage) - 56 - Changed to 55V following Simpliphi feedback
 # 9008 (Float charging voltage) - 54
 # 9009 (Boost reconnect charging voltage) - 53.5 
 # 900A (Low voltage reconnect voltage) - 53
@@ -79,7 +79,7 @@ else:
 # 900D (Low voltage disconnect voltage) - 51.0
 # 900E (Discharge limit voltage) 48
 
-rq = client.client.write_registers(0x9003, [encode(60), encode(58.4), encode(58.4), encode(56), encode(55.5), encode(54), encode(53.5), encode(53), encode(50), encode(49), encode(51), encode(48)], unit=0x1)
+rq = client.client.write_registers(0x9003, [encode(60), encode(58.4), encode(58.4), encode(56), encode(55), encode(54), encode(53.5), encode(53), encode(50), encode(49), encode(51), encode(48)], unit=0x1)
 # assert(not rq.isError())
 
 rr = client.read_input("Over voltage disconnect")
