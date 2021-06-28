@@ -50,8 +50,8 @@ else:
     print "read_holding_registers:", str(rr)
 
 # 9001 (Battery capacity) 150 Ah 
-# 9002 (Temp. Compensation coefficient) -2C (encoding bugs mean this is encoded as +2C)
-rq = client.client.write_registers(0x9001, [150, encode(2)], unit=0x1)
+# 9002 (Temp. Compensation coefficient) -2C (encoding bugs mean this is encoded as +2C) - Changed to 0 following Simpliphi feedback
+rq = client.client.write_registers(0x9001, [150, encode(0)], unit=0x1)
 
 rr = client.read_input("Battery Capacity")
 if hasattr(rr, "getRegister"):
@@ -70,16 +70,16 @@ else:
 # 9004 (Charging limit voltage) - 58.4
 # 9005 (Over voltage reconnect) - 58.4
 # 9006 (Equalize charging voltage) - 56
-# 9007 (Boost charging voltage) - 56
+# 9007 (Boost charging voltage) - 56 - Changed to 55.5V following Simpliphi feedback
 # 9008 (Float charging voltage) - 54
-# 9009 (Boost reconnect charging voltage) - 53.5
+# 9009 (Boost reconnect charging voltage) - 53.5 
 # 900A (Low voltage reconnect voltage) - 53
 # 900B (Under voltage warning recover voltage) - 50
 # 900C (Under voltage warning voltage) - 49
 # 900D (Low voltage disconnect voltage) - 51.0
 # 900E (Discharge limit voltage) 48
 
-rq = client.client.write_registers(0x9003, [encode(60), encode(58.4), encode(58.4), encode(56), encode(56), encode(54), encode(53.5), encode(53), encode(50), encode(49), encode(51), encode(48)], unit=0x1)
+rq = client.client.write_registers(0x9003, [encode(60), encode(58.4), encode(58.4), encode(56), encode(55.5), encode(54), encode(53.5), encode(53), encode(50), encode(49), encode(51), encode(48)], unit=0x1)
 # assert(not rq.isError())
 
 rr = client.read_input("Over voltage disconnect")
@@ -194,8 +194,8 @@ else:
     print "read_holding_registers:", str(rr)
 
 # 906B (Equalize duration)
-# 906C (Boost Duration)
-rq = client.client.write_registers(0x906B, [180, 180], unit=0x1)
+# 906C (Boost Duration) - Changed to 6 mins following Simpliphi feedback
+rq = client.client.write_registers(0x906B, [180, 6], unit=0x1)
 assert(not rq.isError())
 
 rr = client.read_input("Equalize duration")
